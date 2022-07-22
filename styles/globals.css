@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    font-family: 'Baloo Bhaijaan 2', cursive;
+}
+.header-account-shadow{
+    box-shadow: -1px 7px 17px 1px rgba(0,0,0,0.47);
+    -webkit-box-shadow: -1px 7px 17px 1px rgba(0,0,0,0.47);
+    -moz-box-shadow: -1px 7px 17px 1px rgba(0,0,0,0.47);
+}
+.resume-card:hover .resume-card-edit{
+    display: inline;
+}
+.resume-card-edit{
+    display: none;
+}
+h2{
+  font-weight: 700;  
+}
