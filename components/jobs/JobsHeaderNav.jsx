@@ -2,7 +2,7 @@ const JobsHeaderNav = () => {
   return (
     <nav
       dir="rtl"
-      className="border-b "
+      className="border-b bg-white"
     >
       <div className="text-sm max-w-6xl m-auto flex p-3 justify-between">
         <div className="opacity-70 hover:text-blue-700 cursor-pointer">جستجو</div>

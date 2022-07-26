@@ -21,3 +21,9 @@ export const contractCategories=[
     {name:'Telecommuting',id:2},
     {name:'Internship',id:3},
 ]
+export const workExperience=[
+    {name:'بدون سایقه کار',value:0},
+    {name:'بین 1 تا 3 سال',value:1},
+    {name:'بین 3 تا 6 سال',value:3},
+    {name:'بیشتر از 6 سال',value:6},
+]
