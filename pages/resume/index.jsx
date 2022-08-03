@@ -1,9 +1,6 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
-import { userId } from "../../api/api";
 import { getResume } from "../../api/api-resume";
 import {
-  Header,
   ResumeCareerJob,
   ResumePersonalInformation,
   ResumeLanguageList,
@@ -12,6 +9,7 @@ import {
   ResumeWorkExperienceList,
 } from "../../components";
 import { ResumeDetail } from "../../components";
+import Layout from './../../components/layout';
 
 const index = () => {
   const [resume, setResume] = useState({});
@@ -29,12 +27,8 @@ const index = () => {
   }, [resetResume]);
   console.log(resume);
   return (
-    <>
-      <Head>
-        <title>CV Builder</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
+    <Layout title={'CV Builder'}>
+      
 
       <main dir="rtl" className="bg-[#F5F5F5]  py-8">
         <div className=" max-w-6xl m-auto">
@@ -86,7 +80,7 @@ const index = () => {
           </div>
         </div>
       </main>
-    </>
+    </Layout>
   );
 };
 

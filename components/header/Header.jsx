@@ -10,7 +10,7 @@ const Header = () => {
         <div className="space-x-0 text-white hidden md:flex">
           <HeaderNav />
         </div>
-        <div className=" space-x-5 flex items-center text-lg md:hidden">
+        <div className=" ml-4 flex items-center text-lg md:hidden">
           <Link href="/jobs">🔍</Link>
           <Popover className="relative">
             {({ open }) => (

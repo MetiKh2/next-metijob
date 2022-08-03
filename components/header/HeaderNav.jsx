@@ -4,7 +4,7 @@ const HeaderNav = () => {
   return (
     <>
       <div className="text-right text-sm border border-y-0 px-2 border-gray-500 py-6 h-100 hover:bg-[#505050] cursor-pointer">
-        50 شرکت برتر 👑
+       <Link href={'/top50'}> 50 شرکت برتر 👑</Link>
       </div>
       <div className="text-right text-sm border border-y-0 px-2 border-gray-500 py-6 h-100 hover:bg-[#505050] cursor-pointer">
         <Link href={"resume"}> رزومه ساز 🌟</Link>
