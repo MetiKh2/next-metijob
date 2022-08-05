@@ -2,8 +2,10 @@ import { ResumeCardTitle } from "../../";
 import { ResumeLanguageItem } from "../../";
 import { useEffect, useState } from "react";
 import { deleteData } from "../../../api/api-resume";
+import { useAuth } from "../../../context/AuthContext";
 const ResumeLanguageList = ({ languagesList, setResetResume }) => {
   const [languages, setLanguages] = useState([]);
+  const {token}=useAuth()
   useEffect(() => {
     setLanguages(
       languagesList?.map((item) => {
@@ -23,7 +25,7 @@ const ResumeLanguageList = ({ languagesList, setResetResume }) => {
     );
   };
   const handleDelete=(id)=>{
-    deleteData(`resume/delete-language/${id}`,(isOk,res)=>{
+    deleteData(`resume/delete-language/${id}`,token,(isOk,res)=>{
      setResetResume(prev=>!prev)
     })
   }

@@ -2,12 +2,14 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { toastful } from "react-toastful";
 import { baseUrl } from "../../api/api";
+import { useAuth } from "../../context/AuthContext";
 import { postData } from "./../../api/api-resume";
 
 const ResumeDetail = ({image}) => {
   const [avatar, setAvatar] = useState("");
   const [avatarPath, setAvatarPath] = useState(null);
   const inputFile = useRef();
+  const {user,token}=useAuth()
   useEffect(()=>{
     setAvatarPath(`${baseUrl}/UserAvatars/Thumb/${image}`)
   },[image])
@@ -22,8 +24,8 @@ const ResumeDetail = ({image}) => {
       const formData = new FormData();
       formData.append("avatar", e.target.files[0]);
       postData(
-        `resume/upload-user-avatar/${localStorage.getItem("userId")}`,
-        formData,
+        `resume/upload-user-avatar/${user.IdentityId}`,
+        formData,token,
         (isOk, res) => {
           if (!isOk)
             return toastful("مشکلی در حین آپلود رخ داد ,  دوباره تلاش کنید", {

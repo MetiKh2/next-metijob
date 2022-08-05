@@ -5,10 +5,12 @@ import { toastful } from "react-toastful";
 import { postData } from "./../../../api/api-resume";
 import { states } from "./../personalInformation/data";
 import { contractCategories, jobCategories, seniorityLevel } from "./data";
+import { useAuth } from "../../../context/AuthContext";
 
 const ResumeCareerJob = ({ jobCareer, setResetResume }) => {
   const [isEdit, setIsEdit] = useState(false);
 
+  const {user,token}=useAuth()
   return (
     <div
       className={`border border-r-4 border-gray-300 ${
@@ -111,8 +113,8 @@ const ResumeCareerJob = ({ jobCareer, setResetResume }) => {
                 jobCategories: values?.jobCategories?.join("/"),
                 seniorityLevels: values?.seniorityLevels?.join("/"),
                 contractsCategories: values?.contractsCategories?.join("/"),
-                userId: localStorage.getItem("userId"),
-              },
+                userId:user.IdentityId,
+              },token,
               (isOk, res) => {
                 setResetResume((prev) => !prev);
                 setIsEdit(false);

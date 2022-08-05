@@ -1,6 +1,7 @@
 export{default as Header} from './header/Header';
 export{default as HeaderNav} from './header/HeaderNav';
 export{default as HeaderAccount} from './header/HeaderAccount';
+export{default as HeaderAccountItems} from './header/HeaderAccountItems';
 export{default as ResumeDetail} from './resume/ResumeDetail';
 export{default as ResumeCardTitle} from './resume/ResumeCardTitle';
 export{default as ResumePersonalInformation} from './resume/personalInformation/ResumePersonalInformation';
@@ -30,3 +31,4 @@ export{default as CompaniesHeader} from './companies/CompaniesHeader';
 export{default as CompanyCardItem} from './companies/CompanyCardItem';
 export{default as Paging} from './paging/index';
 export{default as SignUpCard} from './signup/SignUpCard';
+export{default as SignInCard} from './signin/SignInCard';

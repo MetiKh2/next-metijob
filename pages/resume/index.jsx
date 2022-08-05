@@ -9,23 +9,31 @@ import {
   ResumeWorkExperienceList,
 } from "../../components";
 import { ResumeDetail } from "../../components";
+import { getIdentityId,getToken } from "../../utils/auth";
 import Layout from './../../components/layout';
+import { useRouter } from 'next/router';
+import { useAuth } from "../../context/AuthContext";
 
 const index = () => {
   const [resume, setResume] = useState({});
   const [resetResume, setResetResume] = useState(false);
+  const router=useRouter()
   useEffect(() => {
+    const userId=getIdentityId()
+    const token=getToken()
+    if(!userId||!token) {
+      router.push('/');
+      return;
+    }
     getResume(
-      `Resume?UserId=${localStorage.getItem(
-        "userId"
-      )}&Image=true&PersonalInformations=true&WorkExperience=true&EducationalRecords=true&ProfessionalSkills=true&Languages=true&CareerJob=true`,
-      (isOk, res) => {
+      `Resume?UserId=${userId}&Image=true&PersonalInformations=true&WorkExperience=true&EducationalRecords=true&ProfessionalSkills=true&Languages=true&CareerJob=true`,
+      token,(isOk, res) => {
         if (isOk) setResume(res);
         else console.log(res);
       }
     );
   }, [resetResume]);
-  console.log(resume);
+ 
   return (
     <Layout title={'CV Builder'}>
       

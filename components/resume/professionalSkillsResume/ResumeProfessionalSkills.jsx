@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { ResumeCardTitle, ResumeProfessionalSkillsItem } from "../../";
 import { postData } from './../../../api/api-resume';
 import { toastful } from 'react-toastful';
+import { useAuth } from "../../../context/AuthContext";
 const ResumeProfessionalSkills = ({setResetResume,professionalSkills}) => {
   const [isEdit, setIsEdit] = useState(false);
   const [skills, setSkills] = useState([]);
   const [skill, setSkill] = useState('')
+  const {user,token}=useAuth()
   useEffect(()=>{
     setSkills(professionalSkills)
   },[professionalSkills])
@@ -14,15 +16,15 @@ const ResumeProfessionalSkills = ({setResetResume,professionalSkills}) => {
   };
   const addSkill = () => {
     if(skill){
-    setSkills([...skills,skill]);
+    setSkills(prev=>prev?[...prev,skill]:[skill]);
     setSkill('')}
   };
   const handleSubmit=(e)=>{
     e.preventDefault();
     postData('resume/update-Skills',{
-      userId:localStorage.getItem('userId'),
+      userId:user.IdentityId,
       skills:skills.join('/')
-    },(isOk,res)=>{
+    },token,(isOk,res)=>{
       setIsEdit(false)
       setResetResume(prev=>!prev)
       if (!isOk)

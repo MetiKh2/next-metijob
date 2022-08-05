@@ -5,9 +5,11 @@ import { Formik } from "formik";
 import { postData } from "../../../api/api-resume";
 import { toastful } from "react-toastful";
 import { FailureToast, SuccessToast } from "../../../utils/toastFul";
+import { useAuth } from "../../../context/AuthContext";
 
 const ResumePersonalInformation = ({setResetResume,information:{email,state,phone,address,isMarried,isMan,yearOfBirth,jobTitle,aboutMe}}) => {
   const [isEdit, setIsEdit] = useState(false);
+  const {user,token}=useAuth()
   return (
     <div
       className={`border border-r-4 border-gray-300 ${
@@ -82,12 +84,12 @@ const ResumePersonalInformation = ({setResetResume,information:{email,state,phon
               `resume/update-personal-information`,
               {
                 ...values,
-                userId: localStorage.getItem("userId"),
+                userId: user.IdentityId,
                 state: Number(values.state),
                 yearOfBirth: Number(values.yearOfBirth),
                 isMan: values.isMan == "true" ? true : false,
                 isMarried: values.isMarried == "true" ? true : false,
-              },
+              },token,
               (isOk, res) => {
                 setIsEdit(false)
                 setResetResume(prev=>!prev);

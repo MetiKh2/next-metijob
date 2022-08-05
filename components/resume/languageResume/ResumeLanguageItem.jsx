@@ -2,9 +2,11 @@ import { languages, levels } from "./data";
 import { useEffect, useState } from "react";
 import { postData } from "./../../../api/api-resume";
 import { toastful } from 'react-toastful';
+import { useAuth } from "../../../context/AuthContext";
 const ResumeLanguageItem = ({ handleDelete,name, level, isEdit, setIsEdit,id,setResetResume,entityId ,levelString,nameString,}) => {
   const [selectedLevel, setSelectedLevel] = useState(0);
   const [selectedLanguage, setSelectedLanguage] = useState(0);
+  const {user,token}=useAuth()
   useEffect(()=>{
     setSelectedLevel(level)
     setSelectedLanguage(name)
@@ -21,8 +23,8 @@ const ResumeLanguageItem = ({ handleDelete,name, level, isEdit, setIsEdit,id,set
             entityId
           },
         ],
-        userId: localStorage.getItem("userId"),
-      },
+        userId: user.IdentityId,
+      },token,
       (isOk, res) => {
         setIsEdit(id,false)
         setResetResume(prev=>!prev)

@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import {SignUpCard} from './../../components';
- 
-const SignUp = () => {
+import Link  from 'next/link';
+import {SignInCard} from '../../components'
+const SignIn = () => {
   return (
     <section dir="rtl" className="bg-[#F5F5F5] h-screen flex flex-col justify-center">
       <header dir="ltr" className="p-3 cursor-pointer">
@@ -11,7 +10,7 @@ const SignUp = () => {
       <main className="max-w-3xl flex-1 m-auto">
         <div className="flex flex-col md:flex-row px-4">
           <div className='md:ml-5 flex-1 mb-6'>
-            <SignUpCard/>
+            <SignInCard/>
           </div>
           <div className='flex-1'>
             <p className="text-2xl">متی جاب چه کمکی به من می‌کنه؟</p>
@@ -26,7 +25,7 @@ const SignUp = () => {
         </div>
       </main>
     </section>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignIn

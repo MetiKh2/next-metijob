@@ -2,6 +2,7 @@ import { Field, Formik } from "formik";
 import { toastful } from "react-toastful";
 import { grades } from "./data";
 import { postData } from './../../../api/api-resume';
+import { useAuth } from "../../../context/AuthContext";
 const ResumeEducationalRecord = ({
   major,
   startDate,
@@ -17,6 +18,7 @@ const ResumeEducationalRecord = ({
   grade,
   handleDelete
 }) => {
+  const {user,token}=useAuth()
   return (
     <div className="relative p-2  flex flex-wrap space-y-4 hover:border-2 hover:border-blue-300 duration-100 resume-card cursor-pointer space-x-2">
       {!isEdit && (
@@ -66,7 +68,7 @@ const ResumeEducationalRecord = ({
             postData(
               `Resume/update-educational-records`,
               {
-                userId: localStorage.getItem("userId"),
+                userId: user.IdentityId,
                 dto: [
                   {
                     ...values,
@@ -74,7 +76,7 @@ const ResumeEducationalRecord = ({
                     entityId
                   },
                 ],
-              },
+              },token,
               (isOk, res) => {
                 setIsEdit(id,false)
                 setResetResume(prev=>!prev)

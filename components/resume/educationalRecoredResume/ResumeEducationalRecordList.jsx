@@ -1,11 +1,13 @@
 import { ResumeEducationalRecord, ResumeCardTitle } from "../../";
 import { useEffect, useState } from "react";
 import { deleteData } from "../../../api/api-resume";
+import { useAuth } from "../../../context/AuthContext";
 const ResumeEducationalRecordList = ({
   educationalRecordsList,
   setResetResume,
 }) => {
   const [educationalRecords, setEducationalRecords] = useState([]);
+  const {token}=useAuth()
   useEffect(() => {
     setEducationalRecords(
       educationalRecordsList?.map((item) => {
@@ -28,7 +30,7 @@ const ResumeEducationalRecordList = ({
     );
   }; 
   const handleDelete=(id)=>{
-    deleteData(`resume/delete-educational-record/${id}`,(isOk,res)=>{
+    deleteData(`resume/delete-educational-record/${id}`,token,(isOk,res)=>{
      setResetResume(prev=>!prev)
     })
   }

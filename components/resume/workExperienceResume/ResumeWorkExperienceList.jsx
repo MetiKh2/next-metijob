@@ -2,8 +2,10 @@ import { ResumeCardTitle } from "../..";
 import { useEffect, useState } from "react";
 import { ResumeWorkExperience } from "../../";
 import { deleteData } from './../../../api/api-resume';
+import { useAuth } from "../../../context/AuthContext";
 const ResumeWorkExperienceList = ({ workExperiencesList ,setResetResume}) => {
   const [workExperiences, setWorkExperiences] = useState([]);
+  const {token}=useAuth()
   useEffect(() => {
     setWorkExperiences(
       workExperiencesList?.map((item) => {
@@ -19,7 +21,7 @@ const ResumeWorkExperienceList = ({ workExperiencesList ,setResetResume}) => {
     ]);
   };
   const handleDelete=(id)=>{
-    deleteData(`resume/delete-work-experience/${id}`,(isOk,res)=>{
+    deleteData(`resume/delete-work-experience/${id}`,token,(isOk,res)=>{
      setResetResume(prev=>!prev)
     })
   }
