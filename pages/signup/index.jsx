@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import {SignUpCard} from './../../components';
+import Head from 'next/head';
  
 const SignUp = () => {
   return (
+    <>
+    <Head>
+      <title>ثبت نام در متی جاب</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
     <section dir="rtl" className="bg-[#F5F5F5] h-screen flex flex-col justify-center">
       <header dir="ltr" className="p-3 cursor-pointer">
        <Link href={'/'}>
@@ -26,6 +32,7 @@ const SignUp = () => {
         </div>
       </main>
     </section>
+    </>
   );
 };
 

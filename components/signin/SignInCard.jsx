@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { loginUser } from '../../api/api-auth';
 import jwt from 'jwt-decode' 
 import { useAuth } from '../../context/AuthContext';
+import Link from 'next/link';
 const SignInCard = () => {
     const [formData, setFormData] = useState({});
     const [error, setError] = useState("");
@@ -94,6 +95,7 @@ const SignInCard = () => {
               />
             </div>
             {error && <p className="text-red-500">{error}</p>}
+            <Link href={'/recover-password'}>بازیابی رمز عبور</Link>
           </form>
         </div>
       </div>

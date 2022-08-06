@@ -4,13 +4,13 @@ import { Fragment } from "react";
 import Link from "next/link";
 const Header = () => {
   return (
-    <header className="px-4 bg-[#444444]">
+    <header className="bg-[#444444]">
       <div className="flex justify-between max-w-6xl m-auto">
         <HeaderAccount />
         <div className="space-x-0 text-white hidden md:flex">
           <HeaderNav />
         </div>
-        <div className=" ml-4 flex items-center text-lg md:hidden">
+        <div className=" flex items-center text-lg md:hidden">
           <Link href="/jobs">🔍</Link>
           <Popover className="relative">
             {({ open }) => (

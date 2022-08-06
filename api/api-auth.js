@@ -20,3 +20,13 @@ export const loginUser=async(data,callback)=>{
   });
  
 }
+export const resetPassword=async(email,callback)=>{
+  getAxiosInstanceApi().post(`auth/change-pass/${email}`)
+  .then(res=>{
+  callback(true,res.data)
+  }).catch(err=>{
+    console.log(err);
+    callback(false,err.response.data.errors)
+  });
+ 
+}

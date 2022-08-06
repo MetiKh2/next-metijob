@@ -7,7 +7,7 @@ import { HeaderAccountItems } from "../";
 const HeaderAccount = () => {
   const { user } = useAuth();
   return (
-    <div className="flex items-center space-x-5">
+    <div className="flex items-center sm:space-x-5 space-x-2">
       <Link href={"/"}>
         <h1 className="cursor-pointer text-white text-3xl border h-full border-y-0 py-6 px-3 border-gray-500">
           MetiJob
@@ -77,7 +77,7 @@ active:bg-[#444444]
 text-white text-xs
  sm:flex mb-2 "
           >
-          <Link href={'/signin'}>ورود</Link>
+            <Link href={"/signin"}>ورود</Link>
           </div>
           <div
             className="shadow-2xl p-2 bg-[#555555]
@@ -87,12 +87,44 @@ active:bg-[#444444]
 text-white text-xs
 flex"
           >
-                  <Link href={'/signup'}>ثبت نلم</Link>
-
+            <Link href={"/signup"}>ثبت نام</Link>
           </div>
         </div>
       )}
-      <div className="py-6 text-lg">🛎️</div>
+      <Popover className="relative">
+        {({ open }) => (
+          <>
+            <Popover.Button
+              className={`
+               ${open ? "" : "text-opacity-90"}
+               group inline-flex items-center rounded-md px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+            >
+              <div className="py-6 text-lg">🛎️</div>
+            </Popover.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <Popover.Panel className="absolute right-0 z-10 mt-3 w-56 max-w-xs  transform px-4 sm:px-0 lg:max-w-3xl">
+                <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                  <div className="relative grid bg-white">
+                    <div className="bg-[#444444] text-white">
+                      <div className="text-right text-sm border border-y-1 px-2 border-[#eee] py-3 h-100 hover:bg-[#505050] cursor-pointer">
+                        <Link href={'/how-to'}> متی جاب چطور به استخدام شدن من کمک می کند؟</Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </>
+        )}
+      </Popover>
     </div>
   );
 };

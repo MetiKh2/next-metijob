@@ -1,7 +1,13 @@
 import Link  from 'next/link';
+import Head from 'next/head';
 import {SignInCard} from '../../components'
 const SignIn = () => {
   return (
+    <>
+      <Head>
+        <title>ورود به متی جاب</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <section dir="rtl" className="bg-[#F5F5F5] h-screen flex flex-col justify-center">
       <header dir="ltr" className="p-3 cursor-pointer">
        <Link href={'/'}>
@@ -25,6 +31,7 @@ const SignIn = () => {
         </div>
       </main>
     </section>
+    </>
   )
 }
 
