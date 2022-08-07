@@ -9,7 +9,9 @@ const Layout = ({title,children}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <main dir="rtl">
       {children}
+      </main>
       <Footer/>
     </>
   )

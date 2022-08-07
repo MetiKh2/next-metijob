@@ -22,7 +22,7 @@ const index = () => {
     const userId=getIdentityId()
     const token=getToken()
     if(!userId||!token) {
-      router.push('/');
+      router.push('/signin');
       return;
     }
     getResume(
