@@ -34,3 +34,6 @@ export{default as SignUpCard} from './signup/SignUpCard';
 export{default as SignInCard} from './signin/SignInCard';
 export{default as RecoverPasswordCard} from './recover-password/RecoverPasswordCard';
 export{default as HowToCard} from './how-to/HowToCard';
+export{default as JobDetailsCard} from './jobs/jobDetails/JobDetailsCard';
+export{default as JobDetailsBanner} from './jobs/jobDetails/JobDetailsBanner';
+export{default as JobDetailsSendResume} from './jobs/jobDetails/JobDetailsSendResume';

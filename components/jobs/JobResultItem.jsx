@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { baseUrl } from "../../api/api";
 import {numberWithCommas} from '../../utils/numbers'
-const JobFilterResultItem = ({ job: { title,isHot, company,location,contractsCategories,salary } }) => {
+const JobFilterResultItem = ({ showSend=true,job: { title,isHot, company,location,contractsCategories,salary,id } }) => {
   return (
     <div className={` flex justify-center sm:justify-between cursor-pointer border-b pb-3 flex-wrap my-3 ${isHot&&' border-r-red-600 border-r-4'}`}>
-      <div className="flex">
+     <Link href={'/jobs/'+id}>
+    <div className="flex">
        <div>
        <Image
           src={`${baseUrl}/Companies/thumb/${company.logo}`}
@@ -22,15 +24,16 @@ const JobFilterResultItem = ({ job: { title,isHot, company,location,contractsCat
           <p>💰 {numberWithCommas(salary)}</p>
         </div>
       </div>
-      <div className="flex flex-col items-center">
-        <button
+        </Link>
+      <div className="flex flex-col items-center justify-center">
+      {showSend&&  <button
           className=" text-white py-2 px-3 font-semibold border border-black bg-green-500
         active:bg-green-600 active:border-2 hover:bg-green-400"
         >
           ارسال رزومه
-        </button>
+        </button>}
         <button className="border p-2">نشان کردن</button>
-      </div>
+      </div> 
     </div>
   );
 };
