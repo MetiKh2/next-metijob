@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { baseUrl } from '../../../api/api';
+import { baseUrl } from '../../../api/api'; 
+import {companyLogo} from '../../../constants'
 const JobDetailsBanner = ({logo,companyName,category,website}) => {
   return (
     <div className='flex p-5 bg-white '>
-        <Image src={`${baseUrl}/Companies/thumb/${logo}`} width={80} height={80}/>
+        <Image src={`${companyLogo}${logo}`} width={80} height={80}/>
         <div className='flex flex-col mr-3'>
             <p className='text-lg font-bold'>{companyName}</p>
             <p  className='text-sm my-2'>{category}</p>

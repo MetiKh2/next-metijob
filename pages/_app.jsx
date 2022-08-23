@@ -1,12 +1,15 @@
 import { Toastful } from "react-toastful";
 import { AuthProvider } from "../context/AuthContext";
+import { JobsProvider } from "../context/JobsContext";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
-      <Toastful>{(output) => <div className="...">{output}</div>}</Toastful>
-      <Component {...pageProps} />
+      <JobsProvider>
+        <Toastful>{(output) => <div className="...">{output}</div>}</Toastful>
+        <Component {...pageProps} />
+      </JobsProvider>
     </AuthProvider>
   );
 }

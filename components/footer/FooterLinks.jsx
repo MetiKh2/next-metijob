@@ -7,8 +7,8 @@ const FooterLinks = ({title,links}) => {
             <h1 className='text-white opacity-60 border-b pb-2'>{title}</h1>
         </div>
         <div className='flex flex-col'>
-            {links.map(link=>(
-                <div className='text-white my-2'>
+            {links.map((link,i)=>(
+                <div key={i} className='text-white my-2'>
                     {link.key}
                 </div>
             ))}

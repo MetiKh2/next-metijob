@@ -38,15 +38,20 @@ const Jobs = ({ jobs }) => {
   return (
     <Layout title={"Jobs"}>
       <section className="bg-[#F5F5F5] min-h-screen">
-        <JobsHeaderNav />
+        <JobsHeaderNav active='jobs'/>
         <JobsSearch
+          bg={{
+            background: "rgb(60,208,217)",
+            background:
+              "linear-gradient(87deg, rgba(60,208,217,1) 6%, rgba(72,204,127,1) 91%, rgba(109,227,134,0.7539390756302521) 100%",
+          }}
           handleSearch={handleSearch}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
         <section
           dir="rtl"
-          className="flex flex-col lg:flex-row max-w-6xl m-auto mt-5"
+          className="flex flex-col lg:flex-row max-w-6xl m-auto mt-5 px-4  "
         >
           <JobsFilters
             setSelectedWorkExperience={setWorkExperience}
@@ -65,6 +70,7 @@ const Jobs = ({ jobs }) => {
           endPage={jobs.endPage}
           pageId={jobs.pageId}
         />
+        <div className={'pb-4'}></div>
       </section>
     </Layout>
   );

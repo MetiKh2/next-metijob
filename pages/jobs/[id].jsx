@@ -7,7 +7,7 @@ const JobDetail = ({ job,jobsForCompany, error }) => {
   const router=useRouter();
   if (!job && !error) return "loading...";
   if(error) return ''
-   
+  console.log(job)
   return (
     <Layout title={job?.title}>
       <section className="bg-[#f5f5f5] py-5">
@@ -27,7 +27,7 @@ const JobDetail = ({ job,jobsForCompany, error }) => {
           </div>
             </div>}
           </section>
-          <section  style={{flex:1}} className='mr-3'>
+          <section  style={{flex:1}} className='mr-3 mt-4 px-2'>
              <JobDetailsSendResume jobId={router?.query.id}/>
           </section>
            
@@ -37,7 +37,6 @@ const JobDetail = ({ job,jobsForCompany, error }) => {
   );
 };
 export async function getServerSideProps(context) {
-  console.log('dhdh');
   const { query } = context;
   const id = query.id;
   try {

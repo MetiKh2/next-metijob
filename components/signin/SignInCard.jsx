@@ -9,7 +9,7 @@ const SignInCard = () => {
     const [formData, setFormData] = useState({});
     const [error, setError] = useState("");
     const router=useRouter()
-    const {getUserFromLocalStorage}=useAuth()
+    const {getUserFromLocalStorage,getTokenLocalStorage}=useAuth()
     const changeFormData = (id, value) => {
       setFormData({ ...formData, [id]: value });
     };
@@ -29,6 +29,7 @@ const SignInCard = () => {
           const decodedToken=jwt(res.token)
           localStorage.setItem("user", JSON.stringify(decodedToken));
           getUserFromLocalStorage();
+          getTokenLocalStorage();
           setTimeout(() => {
             router.push('/')
           }, 3000);

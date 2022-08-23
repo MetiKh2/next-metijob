@@ -1,13 +1,9 @@
-const JobsSearch = ({searchTerm,setSearchTerm,handleSearch}) => {
+const JobsSearch = ({bg,searchTerm,setSearchTerm,handleSearch}) => {
   return (
     <section
       dir="rtl"
       className="max-w-6xl m-auto mt-10 p-8"
-      style={{
-        background: "rgb(60,208,217)",
-        background:
-          "linear-gradient(87deg, rgba(60,208,217,1) 6%, rgba(72,204,127,1) 91%, rgba(109,227,134,0.7539390756302521) 100%",
-      }}
+      style={bg}
     >
        <form onSubmit={handleSearch}>
       <div className="mx-3 flex">

@@ -1,8 +1,9 @@
 import Link from "next/link";
+import {Banner as SiteBanner} from "../";
 
 const Banner = () => {
   return (
-    <section className="pt-12 pb-20 bg-cover bg-no-repeat" style={{ backgroundImage: "url('/top50.jpg')" }}>
+    <SiteBanner  image={"url('/top50.jpg')"} >
       <div className="flex flex-col items-center max-w-6xl m-auto px-2">
         <h1 className="text-3xl font-semibold text-white text-center">
           فهرست ۵۰ شرکت برتر ایران برای کار
@@ -18,7 +19,7 @@ const Banner = () => {
         </Link>
         </div>
       </div>
-    </section>
+    </SiteBanner>
   );
 };
 

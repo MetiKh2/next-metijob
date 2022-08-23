@@ -1,10 +1,10 @@
 import Layout from "../../components/layout/index";
-import { Banner, CompanyItem } from "../../components";
+import { TopCompaniesBanner, CompanyItem } from "../../components";
 import { getCompanies } from './../../api/api-companies';
 const Top50 = ({companies}) => {
   return (
     <Layout title="Top50">
-      <Banner />
+      <TopCompaniesBanner />
       <section className="max-w-6xl m-auto my-5 border-t-2 border border-r-4">
        {companies?.map((company,i)=>(
       <CompanyItem

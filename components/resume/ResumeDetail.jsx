@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { toastful } from "react-toastful";
 import { baseUrl } from "../../api/api";
+import { resumeAvatar } from "../../constants";
 import { useAuth } from "../../context/AuthContext";
 import { postData } from "./../../api/api-resume";
 
@@ -11,7 +12,7 @@ const ResumeDetail = ({image}) => {
   const inputFile = useRef();
   const {user,token}=useAuth()
   useEffect(()=>{
-    setAvatarPath(`${baseUrl}/UserAvatars/Thumb/${image}`)
+    setAvatarPath(`${resumeAvatar}${image}`)
   },[image])
   const handleChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {

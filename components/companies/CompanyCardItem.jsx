@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { baseUrl } from "./../../api/api";
 import { useState } from 'react';
+import { companyBanner, companyLogo } from "../../constants";
 
 const CompanyCardItem = ({ company: {category,location, name, logo, firstBannerImage } }) => {
   return (
@@ -9,7 +10,7 @@ const CompanyCardItem = ({ company: {category,location, name, logo, firstBannerI
         <div className="relative">
           <div>
             <Image
-              src={`${baseUrl}/CompanyBanners/thumb/${firstBannerImage}`}
+              src={`${companyBanner}${firstBannerImage}`}
               width={"100%"}
               layout={"responsive"}
               height={30}
@@ -17,7 +18,7 @@ const CompanyCardItem = ({ company: {category,location, name, logo, firstBannerI
           </div>
           <div className="absolute -bottom-10 right-2.5 shat">
             <Image
-              src={`${baseUrl}/Companies/thumb/${logo}`}
+              src={`${companyLogo}${logo}`}
               width={65}
               height={65}
             />

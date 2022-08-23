@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { baseUrl } from "./../../api/api";
+import {companyBanner, companyLogo} from '../../constants'
 const CompanyItem = ({
   index,
   rating,
@@ -21,7 +22,7 @@ const CompanyItem = ({
           <div className={`mx-2 ${isOpen && "hidden"} `}>
             {logo && (
               <Image
-                src={`${baseUrl}/Companies/thumb/${logo}`}
+              src={`${companyLogo}${logo}`}
                 width={50}
                 height={50}
               />
@@ -42,7 +43,7 @@ const CompanyItem = ({
             <div className="flex items-center">
               {logo && (
                 <Image
-                  src={`${baseUrl}/Companies/thumb/${logo}`}
+                  src={`${companyLogo}${logo}`}
                   width={100}
                   height={100}
                 />
@@ -62,7 +63,7 @@ const CompanyItem = ({
           <div>
             {banner && (
               <Image
-                src={`${baseUrl}/CompanyBanners/thumb/${banner}`}
+                src={`${companyBanner}${banner}`}
                 layout="responsive"
                 width={"100%"}
                 height={35}

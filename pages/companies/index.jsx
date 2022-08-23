@@ -3,7 +3,7 @@ import { getCompanies } from "./../../api/api-companies";
 import { CompaniesHeader, CompanyCardItem, Paging } from "../../components";
 const Companies = ({ values }) => {
   return (
-    <Layout>
+    <Layout title='شرکت ها'>
       <div dir="rtl" className="max-w-6xl m-auto py-9">
         <CompaniesHeader />
         <section className="grid grid-cols-1 sm:grid-cols-2">

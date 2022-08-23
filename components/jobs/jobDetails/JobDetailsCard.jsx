@@ -1,5 +1,7 @@
 import { ResumePersonalInformationItem } from "../../";
 import { numberWithCommas } from "../../../utils/numbers";
+import {toggleBookMark} from "../../../api/api-jobs";
+import {useAuth} from "../../../context/AuthContext";
 const JobDetailsCard = ({
   job: {
     title,
@@ -11,17 +13,19 @@ const JobDetailsCard = ({
     salary,
     minimumWorkExperience,
     isMan,
+      id,
     militaryStatus,
     jobCompanyProperties:{
         introduced
     }
 },
 }) => {
+    const {user,token}=useAuth()
   return (
     <div className="bg-white p-3 border">
       <div className="flex items-center justify-between border-b pb-3">
         <p>{title}</p>
-        <button className="border p-1.5 ">نشان کردن</button>
+        <button className="border p-1.5 " onClick={()=>toggleBookMark(user?.IdentityId,id,token,()=>{})}>نشان کردن</button>
       </div>
       <div className="py-5 grid sm:grid-cols-2 space-y-3 border-b">
         <ResumePersonalInformationItem
