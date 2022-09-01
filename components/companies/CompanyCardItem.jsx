@@ -2,11 +2,13 @@ import Image from "next/image";
 import { baseUrl } from "./../../api/api";
 import { useState } from 'react';
 import { companyBanner, companyLogo } from "../../constants";
+import Link from "next/link";
 
-const CompanyCardItem = ({ company: {category,location, name, logo, firstBannerImage } }) => {
+const CompanyCardItem = ({ company: {category,id,location, name, logo, firstBannerImage } }) => {
   return (
-    <article className="m-2 border shadow-xl">
-      <div className="flex flex-col">
+    <article className="m-2 border shadow-xl cursor-pointer">
+     <Link href={`companies/${id}`}>
+     <div className="flex flex-col">
         <div className="relative">
           <div>
             <Image
@@ -36,7 +38,7 @@ const CompanyCardItem = ({ company: {category,location, name, logo, firstBannerI
             <p className="bg-teal-400 p-1 rounded-lg mb-1.5 ml-1.5">در حال استخدام</p>
           </div>
         </div>
-      </div>
+      </div></Link>
     </article>
   );
 };

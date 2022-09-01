@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { baseUrl } from "./../../api/api";
 import {companyBanner, companyLogo} from '../../constants'
+import { useRouter } from 'next/router';
 const CompanyItem = ({
   index,
   rating,
@@ -10,8 +11,10 @@ const CompanyItem = ({
   category,
   jobsCount,
   banner,
+  id
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router=useRouter()
   return (
     <div className="p-3 border-b" dir="rtl">
       <div className="flex justify-between">
@@ -48,7 +51,7 @@ const CompanyItem = ({
                   height={100}
                 />
               )}
-              <button className="bg-teal-500 text-sm font-bold px-1.5 h-8 text-white mr-4 hover:bg-teal-400 active:bg-teal-600 active:border-2 border-teal-700">
+              <button onClick={()=>router.push(`/companies/${id}`)} className="bg-teal-500 text-sm font-bold px-1.5 h-8 text-white mr-4 hover:bg-teal-400 active:bg-teal-600 active:border-2 border-teal-700">
                 مشاهده صفحه شرکت
               </button>
             </div>

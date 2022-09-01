@@ -42,3 +42,7 @@ export{default as HomeCompanyCard} from './home/HomeCompanyCard';
 export{default as HomeJobCard} from './home/HomeJobCard';
 export{default as AppliedCard} from './applied/AppliedCard';
 export{default as AppliedCardHeader} from './applied/AppliedCardHeader';
+export{default as AtGlanceCompany} from './companies/companyDetails/AtGlanceCompany';
+export{default as CompanyDetailsImage} from './companies/companyDetails/CompanyDetailsImage';
+export{default as WorkerItem} from './companies/companyDetails/WorkerItem';
+export{default as IntroductionCompany} from './companies/companyDetails/IntroductionCompany';

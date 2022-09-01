@@ -15,6 +15,7 @@ const Top50 = ({companies}) => {
           category={company?.category}
           jobsCount={36}
           banner={company?.firstBannerImage}
+          id={company?.id}
        />  
        ))}
       </section>

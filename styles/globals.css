@@ -20,3 +20,6 @@
 h2{
   font-weight: 700;  
 }
+.full-w-img span{
+width: 100% !important;
+}
